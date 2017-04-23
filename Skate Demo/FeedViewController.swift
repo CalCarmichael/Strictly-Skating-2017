@@ -114,8 +114,16 @@ extension FeedViewController: UITableViewDataSource {
         let user = users[indexPath.row]
         cell.post = post
         cell.user = user
-        cell.feedVC = self
+        cell.delegate = self
         return cell
+    }
+    
+}
+
+extension FeedViewController: FeedTableViewCellDelegate {
+    
+    func goToCommentVC(postId: String) {
+        performSegue(withIdentifier: "CommentSegue", sender: postId)
     }
     
 }

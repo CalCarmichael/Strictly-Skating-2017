@@ -9,6 +9,12 @@
 import UIKit
 import ProgressHUD
 
+//Declaring delegate protocol
+
+protocol FeedTableViewCellDelegate {
+    func goToCommentVC(postId: String)
+}
+
 class FeedTableViewCell: UITableViewCell {
     
     
@@ -22,9 +28,9 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var likeCountButton: UIButton!
     @IBOutlet weak var captionLabel: UILabel!
     
-    //Created an instance variable
+    //DelegateCell = if reuse cell somewhere else dont need a switch implementation
     
-    var feedVC: FeedViewController?
+    var delegate: FeedTableViewCellDelegate?
     
     var post: Post? {
         didSet {
@@ -150,7 +156,10 @@ class FeedTableViewCell: UITableViewCell {
     func commentView_TouchUpInside() {
         print("touched")
         if let id = post?.id {
-            feedVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
+            
+            //Delegate implements how to switch view now
+            
+            delegate?.goToCommentVC(postId: id)
 
         }
     }

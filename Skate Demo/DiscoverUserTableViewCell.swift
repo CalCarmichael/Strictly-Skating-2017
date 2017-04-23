@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DiscoverUserTableViewCellDelegate {
+    func goToProfileUserVC(userId: String)
+}
+
 class DiscoverUserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
@@ -16,7 +20,7 @@ class DiscoverUserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var followButton: UIButton!
     
-    var peopleVC: DiscoverUserViewController?
+    var delegate: DiscoverUserTableViewCellDelegate?
     
     var user: User? {
         didSet {
@@ -133,7 +137,7 @@ class DiscoverUserTableViewCell: UITableViewCell {
         
         if let id = user?.id {
             
-            peopleVC?.performSegue(withIdentifier: "ViewingProfileSegue", sender: id)
+            delegate?.goToProfileUserVC(userId: id)
             
         }
         

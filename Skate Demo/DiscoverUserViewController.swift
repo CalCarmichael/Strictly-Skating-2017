@@ -81,9 +81,19 @@ extension DiscoverUserViewController: UITableViewDataSource {
         
         cell.user = user
         
-        cell.peopleVC = self
+        cell.delegate = self
         
         return cell
+    }
+    
+}
+
+extension DiscoverUserViewController: DiscoverUserTableViewCellDelegate {
+    
+    func goToProfileUserVC(userId: String) {
+        
+        performSegue(withIdentifier: "ViewingProfileSegue", sender: userId)
+        
     }
     
 }
