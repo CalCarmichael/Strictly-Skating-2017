@@ -68,9 +68,21 @@ class SearchViewController: UIViewController {
         
         Api.Follow.isFollowing(userId: userId, completed: completed)
         
+}
+
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    
+    if segue.identifier == "Search_ProfileSegue" {
+        let profileVC = segue.destination as! ProfileUserViewController
+        let userId = sender as! String
+        profileVC.userId = userId
+    }
+    
     }
     
 }
+
 
 extension SearchViewController: UISearchBarDelegate {
     
@@ -111,8 +123,22 @@ extension SearchViewController: UITableViewDataSource {
         
         cell.user = user
         
+        cell.delegate = self
+        
         return cell
     }
     
 }
+
+extension SearchViewController: DiscoverUserTableViewCellDelegate  {
+    
+    func goToProfileUserVC(userId: String) {
+        
+        performSegue(withIdentifier: "Search_ProfileSegue", sender: userId)
+        
+    }
+    
+}
+
+
 

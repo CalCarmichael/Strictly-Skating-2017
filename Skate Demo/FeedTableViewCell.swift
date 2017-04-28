@@ -13,6 +13,7 @@ import ProgressHUD
 
 protocol FeedTableViewCellDelegate {
     func goToCommentVC(postId: String)
+    func goToProfileUserVC(userId: String)
 }
 
 class FeedTableViewCell: UITableViewCell {
@@ -130,7 +131,23 @@ class FeedTableViewCell: UITableViewCell {
         likeImageView.addGestureRecognizer(tapGestureForLikeImageView)
         likeImageView.isUserInteractionEnabled = true
         
+        let tapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_TouchUpInside))
+        usernameLabel.addGestureRecognizer(tapGestureForNameLabel)
+        usernameLabel.isUserInteractionEnabled = true
+        
     }
+    
+
+    func nameLabel_TouchUpInside() {
+        
+        if let id = user?.id {
+            
+            delegate?.goToProfileUserVC(userId: id)
+            
+        }
+        
+    }
+        
     
     
     //Like image when pressed sent to database

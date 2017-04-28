@@ -22,6 +22,8 @@ class DiscoverUserTableViewCell: UITableViewCell {
     
     var delegate: DiscoverUserTableViewCellDelegate?
     
+    
+    
     var user: User? {
         didSet {
             updateView()
