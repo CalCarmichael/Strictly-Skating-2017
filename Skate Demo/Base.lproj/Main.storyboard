@@ -120,7 +120,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j0I-yF-rj1" id="3lH-2I-AiZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D7k-qv-ZjD">
@@ -354,6 +354,7 @@
                                         <constraint firstItem="5Ws-Sg-77N" firstAttribute="centerX" secondItem="KZz-Hp-bNJ" secondAttribute="centerX" id="uZb-K4-Pqy"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="followButton" destination="5Ws-Sg-77N" id="iOv-qh-RJB"/>
                                         <outlet property="followerCounterLabel" destination="br0-q6-FOC" id="dN8-9S-EKZ"/>
                                         <outlet property="followingCountLabel" destination="ECl-Zz-7dM" id="tEe-3e-AfB"/>
                                         <outlet property="nameLabel" destination="KZz-Hp-bNJ" id="6hL-x0-cin"/>
@@ -906,7 +907,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6SL-9v-7FQ" id="ndq-6S-kxh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-m5-acd">
@@ -1320,7 +1321,7 @@
                             <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vXu-jk-iuF" id="Qdh-fc-knf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-j5-bHQ">
@@ -1513,10 +1514,11 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WL-PW-X9W">
-                                            <rect key="frame" x="150" y="138.5" width="75" height="30"/>
-                                            <color key="backgroundColor" red="1" green="0.89142002890000005" blue="0.90101993579999995" alpha="1" colorSpace="calibratedRGB"/>
-                                            <state key="normal" title="Edit">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WL-PW-X9W">
+                                            <rect key="frame" x="150" y="138.5" width="75" height="29"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                            <state key="normal" title="Loading...">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -1539,6 +1541,7 @@
                                         <constraint firstItem="1WL-PW-X9W" firstAttribute="top" secondItem="9jf-Eh-8rs" secondAttribute="bottom" constant="8" symbolic="YES" id="vVK-0q-FQy"/>
                                     </constraints>
                                     <connections>
+                                        <outlet property="followButton" destination="1WL-PW-X9W" id="GLL-fH-6Rx"/>
                                         <outlet property="followerCounterLabel" destination="Tse-FA-k1c" id="aJU-2B-Xam"/>
                                         <outlet property="followingCountLabel" destination="MAL-g7-U2U" id="Z1O-1J-DTM"/>
                                         <outlet property="nameLabel" destination="9jf-Eh-8rs" id="1RX-1J-ohQ"/>

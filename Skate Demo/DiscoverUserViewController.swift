@@ -53,6 +53,8 @@ class DiscoverUserViewController: UIViewController {
             let profileVC = segue.destination as! ProfileUserViewController
             let userId = sender as! String
             profileVC.userId = userId
+            
+            profileVC.delegate = self
         }
         
     }
@@ -96,4 +98,30 @@ extension DiscoverUserViewController: DiscoverUserTableViewCellDelegate {
         
     }
     
+}
+
+extension DiscoverUserViewController: ProfileHeaderCollectionReusableViewDelegate {
+    
+    func updateFollowButton(forUser user: User) {
+        
+        // for loop asking is this person the input user (u = user)
+        
+        for u in self.users {
+            
+        // comapre id and if they match its correct user
+            
+            if u.id == user.id {
+                
+                //then update following state in view controller
+                
+                u.isFollowing = user.isFollowing
+                
+                self.tableView.reloadData()
+                
+            }
+            
+            
+            
+        }
+    }
 }

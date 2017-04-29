@@ -18,6 +18,8 @@ class ProfileUserViewController: UIViewController {
     var posts: [Post] = []
     
     var userId = ""
+    
+    var delegate: ProfileHeaderCollectionReusableViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +38,29 @@ class ProfileUserViewController: UIViewController {
         
         Api.User.observeUser(withId: userId) { (user) in
             
+            self.isFollowing(userId: user.id!, completed: { (value) in
+                
+            //Tells us if current user is following user
+                
+            user.isFollowing = value
+                
+            //
+
             self.user = user
             
             self.navigationItem.title = user.username
             
             self.collectionView.reloadData()
+                
+            })
             
         }
+        
+    }
+    
+    func isFollowing(userId: String, completed: @escaping (Bool) -> Void) {
+        
+        Api.Follow.isFollowing(userId: userId, completed: completed)
         
     }
     
@@ -85,6 +103,9 @@ extension ProfileUserViewController: UICollectionViewDataSource {
         let headerViewCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "ProfileHeaderCollectionReusableView", for: indexPath) as! ProfileHeaderCollectionReusableView
         if let user = self.user {
             headerViewCell.user = user
+            
+            headerViewCell.delegate = self.delegate
+            
         }
         
         return headerViewCell

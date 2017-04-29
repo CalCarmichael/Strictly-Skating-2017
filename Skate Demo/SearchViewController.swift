@@ -52,6 +52,7 @@ class SearchViewController: UIViewController {
                     user.isFollowing = value
                     
                     self.users.append(user)
+                    
                     self.tableView.reloadData()
                     
                 })
@@ -77,6 +78,10 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let profileVC = segue.destination as! ProfileUserViewController
         let userId = sender as! String
         profileVC.userId = userId
+        
+        profileVC.delegate = self
+
+        
     }
     
     }
@@ -140,5 +145,29 @@ extension SearchViewController: DiscoverUserTableViewCellDelegate  {
     
 }
 
+extension SearchViewController: ProfileHeaderCollectionReusableViewDelegate {
+    
+    func updateFollowButton(forUser user: User) {
+        
+        // for loop asking is this person the input user (u = user)
+        
+        for u in self.users {
+            
+            // comapre id and if they match its correct user
+            
+            if u.id == user.id {
+                
+                //then update following state in view controller
+                
+                u.isFollowing = user.isFollowing
+                
+                self.tableView.reloadData()
+                
+            }
+            
+            
+            
+        }
+}
 
-
+}
