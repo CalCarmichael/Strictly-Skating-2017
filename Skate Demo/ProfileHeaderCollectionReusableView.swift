@@ -54,14 +54,29 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
                 
             }
         
+        //Updating how many posts user has
+        
         Api.userPosts.getCountUserPosts(userId: user!.id!) { (count) in
             
               self.userPostsCountLabel.text = "\(count)"
             
         }
         
+        Api.Follow.getFollowingCount(userId: user!.id!) { (count) in
+            
+            self.followingCountLabel.text = "\(count)"
+            
+        }
         
-        //Checking is user is current user
+        Api.Follow.getFollowerCount(userId: user!.id!) { (count) in
+            
+            self.followerCounterLabel.text = "\(count)"
+            
+        }
+        
+        
+        
+        //Checking if user is current user
         
         if user?.id == Api.User.CURRENT_USER?.uid {
             
