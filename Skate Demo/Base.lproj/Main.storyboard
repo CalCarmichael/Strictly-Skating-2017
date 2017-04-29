@@ -355,11 +355,11 @@
                                     </constraints>
                                     <connections>
                                         <outlet property="followButton" destination="5Ws-Sg-77N" id="iOv-qh-RJB"/>
-                                        <outlet property="followerCounterLabel" destination="br0-q6-FOC" id="dN8-9S-EKZ"/>
-                                        <outlet property="followingCountLabel" destination="ECl-Zz-7dM" id="tEe-3e-AfB"/>
+                                        <outlet property="followerCounterLabel" destination="nFs-uy-QLc" id="UAN-iY-1CB"/>
+                                        <outlet property="followingCountLabel" destination="wGJ-zN-KHM" id="M8z-Bj-FAZ"/>
                                         <outlet property="nameLabel" destination="KZz-Hp-bNJ" id="6hL-x0-cin"/>
                                         <outlet property="profileImage" destination="1sB-em-fUv" id="reC-Th-B79"/>
-                                        <outlet property="userPostCountLabel" destination="wAz-ke-uJJ" id="MfL-Tb-MDD"/>
+                                        <outlet property="userPostsCountLabel" destination="wGJ-As-Snk" id="3W4-qq-mxk"/>
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>

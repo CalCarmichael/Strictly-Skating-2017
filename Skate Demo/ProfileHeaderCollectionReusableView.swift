@@ -20,11 +20,13 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     
     @IBOutlet weak var nameLabel: UILabel!
     
-    @IBOutlet weak var userPostCountLabel: UIStackView!
+
+    @IBOutlet weak var userPostsCountLabel: UILabel!
     
-    @IBOutlet weak var followingCountLabel: UIStackView!
+    @IBOutlet weak var followingCountLabel: UILabel!
+
+    @IBOutlet weak var followerCounterLabel: UILabel!
     
-    @IBOutlet weak var followerCounterLabel: UIStackView!
     
     @IBOutlet weak var followButton: UIButton!
     
@@ -51,6 +53,13 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
             self.profileImage.sd_setImage(with: photoUrl)
                 
             }
+        
+        Api.userPosts.getCountUserPosts(userId: user!.id!) { (count) in
+            
+              self.userPostsCountLabel.text = "\(count)"
+            
+        }
+        
         
         //Checking is user is current user
         
